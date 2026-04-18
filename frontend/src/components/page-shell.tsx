@@ -3,7 +3,7 @@ import { Link, useRouterState } from '@tanstack/react-router'
 
 export function PageShell({ children }: PropsWithChildren) {
   const pathname = useRouterState({ select: (state) => state.location.pathname })
-  const isShellRoute = pathname === '/about'
+  const isShellRoute = pathname === '/about' || pathname === '/components'
 
   if (!isShellRoute) {
     return <main className="min-h-screen">{children}</main>
@@ -46,6 +46,16 @@ export function PageShell({ children }: PropsWithChildren) {
               }}
             >
               About
+            </Link>
+            <Link
+              to="/components"
+              className="rounded-xl px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-white hover:text-slate-900"
+              activeProps={{
+                className:
+                  'rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm',
+              }}
+            >
+              Components
             </Link>
           </nav>
         </div>

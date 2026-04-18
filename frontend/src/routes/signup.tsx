@@ -1,4 +1,6 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
+import { Button } from '@/components/ui/button'
+import { TextField } from '@/components/ui/text-field'
 
 export const Route = createFileRoute('/signup')({
   component: SignupPage,
@@ -27,28 +29,20 @@ function SignupPage() {
         >
           <label className="block sm:col-span-2">
             <span className="mb-2 block text-sm font-medium text-[#c9d4dd]">Full Name</span>
-            <input
-              type="text"
-              placeholder="Seu nome"
-              className="w-full rounded-xl border border-white/10 bg-[#151515] px-3 py-3 text-sm text-[#f4f6f8] outline-none transition focus:border-[#78b7de] focus:ring-4 focus:ring-[#5dade2]/20"
-            />
+            <TextField type="text" placeholder="Seu nome" className="border-white/10 bg-[#151515] text-[#f4f6f8]" />
           </label>
 
           <label className="block sm:col-span-2">
             <span className="mb-2 block text-sm font-medium text-[#c9d4dd]">Email</span>
-            <input
-              type="email"
-              placeholder="you@example.com"
-              className="w-full rounded-xl border border-white/10 bg-[#151515] px-3 py-3 text-sm text-[#f4f6f8] outline-none transition focus:border-[#78b7de] focus:ring-4 focus:ring-[#5dade2]/20"
-            />
+            <TextField type="email" placeholder="you@example.com" className="border-white/10 bg-[#151515] text-[#f4f6f8]" />
           </label>
 
           <label className="block">
             <span className="mb-2 block text-sm font-medium text-[#c9d4dd]">Password</span>
-            <input
+            <TextField
               type="password"
               placeholder="********"
-              className="w-full rounded-xl border border-white/10 bg-[#151515] px-3 py-3 text-sm text-[#f4f6f8] outline-none transition focus:border-[#78b7de] focus:ring-4 focus:ring-[#5dade2]/20"
+              className="border-white/10 bg-[#151515] text-[#f4f6f8]"
             />
           </label>
 
@@ -56,10 +50,10 @@ function SignupPage() {
             <span className="mb-2 block text-sm font-medium text-[#c9d4dd]">
               Confirm Password
             </span>
-            <input
+            <TextField
               type="password"
               placeholder="********"
-              className="w-full rounded-xl border border-white/10 bg-[#151515] px-3 py-3 text-sm text-[#f4f6f8] outline-none transition focus:border-[#78b7de] focus:ring-4 focus:ring-[#5dade2]/20"
+              className="border-white/10 bg-[#151515] text-[#f4f6f8]"
             />
           </label>
 
@@ -71,12 +65,12 @@ function SignupPage() {
             <span className="text-sm text-[#a9bcc9]">Aceito os termos de servico</span>
           </label>
 
-          <button
+          <Button
             type="submit"
-            className="sm:col-span-2 mt-1 w-full rounded-xl bg-gradient-to-r from-[#79b8df] to-[#5dade2] px-4 py-3 text-sm font-semibold text-[#102738] shadow-[0_14px_35px_rgba(93,173,226,0.33)] transition hover:brightness-110"
+            className="sm:col-span-2 mt-1 w-full bg-gradient-to-r from-[#79b8df] to-[#5dade2] text-[#102738] shadow-[0_14px_35px_rgba(93,173,226,0.33)]"
           >
             Cadastrar
-          </button>
+          </Button>
         </form>
 
         <p className="mt-7 text-center text-sm text-[#a7bac8]">

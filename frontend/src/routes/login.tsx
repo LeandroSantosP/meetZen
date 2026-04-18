@@ -1,4 +1,6 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
+import { Button } from '@/components/ui/button'
+import { TextField } from '@/components/ui/text-field'
 
 export const Route = createFileRoute('/login')({
   component: LoginPage,
@@ -24,28 +26,21 @@ function LoginPage() {
         <form className="mt-8 space-y-4" onSubmit={(event) => event.preventDefault()}>
           <label className="block">
             <span className="mb-2 block text-sm font-medium text-[#c9d4dd]">Email</span>
-            <input
-              type="email"
-              placeholder="you@example.com"
-              className="w-full rounded-xl border border-white/10 bg-[#151515] px-3 py-3 text-sm text-[#f4f6f8] outline-none transition focus:border-[#78b7de] focus:ring-4 focus:ring-[#5dade2]/20"
-            />
+            <TextField type="email" placeholder="you@example.com" className="border-white/10 bg-[#151515] text-[#f4f6f8]" />
           </label>
 
           <label className="block">
             <span className="mb-2 block text-sm font-medium text-[#c9d4dd]">Password</span>
-            <input
+            <TextField
               type="password"
               placeholder="********"
-              className="w-full rounded-xl border border-white/10 bg-[#151515] px-3 py-3 text-sm text-[#f4f6f8] outline-none transition focus:border-[#78b7de] focus:ring-4 focus:ring-[#5dade2]/20"
+              className="border-white/10 bg-[#151515] text-[#f4f6f8]"
             />
           </label>
 
-          <button
-            type="submit"
-            className="mt-2 w-full rounded-xl bg-gradient-to-r from-[#79b8df] to-[#5dade2] px-4 py-3 text-sm font-semibold text-[#102738] shadow-[0_14px_35px_rgba(93,173,226,0.33)] transition hover:brightness-110"
-          >
+          <Button type="submit" className="mt-2 w-full bg-gradient-to-r from-[#79b8df] to-[#5dade2] text-[#102738] shadow-[0_14px_35px_rgba(93,173,226,0.33)]">
             Entrar
-          </button>
+          </Button>
         </form>
 
         <div className="my-6 flex items-center gap-3">
@@ -55,18 +50,20 @@ function LoginPage() {
         </div>
 
         <div className="space-y-3">
-          <button
+          <Button
             type="button"
-            className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/12 bg-white/4 px-4 py-3 text-sm font-medium text-[#d6e2ea] transition hover:bg-white/10"
+            variant="secondary"
+            className="flex w-full border-white/12 bg-white/4 font-medium text-[#d6e2ea] hover:bg-white/10"
           >
             Entrar com Google
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
-            className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/12 bg-white/4 px-4 py-3 text-sm font-medium text-[#d6e2ea] transition hover:bg-white/10"
+            variant="secondary"
+            className="flex w-full border-white/12 bg-white/4 font-medium text-[#d6e2ea] hover:bg-white/10"
           >
             Entrar com GitHub
-          </button>
+          </Button>
         </div>
 
         <p className="mt-7 text-center text-sm text-[#a7bac8]">

@@ -1,4 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router'
+import {
+  CardDescription,
+  CardRoot,
+  CardTitle,
+} from '@/components/ui/card'
 
 export const Route = createFileRoute('/about')({
   component: AboutPage,
@@ -20,18 +25,18 @@ function AboutPage() {
       </p>
 
       <div className="mt-6 grid gap-3 md:grid-cols-2">
-        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-          <h3 className="font-semibold text-slate-900">TanStack Router</h3>
-          <p className="mt-1 text-sm text-slate-600">
+        <CardRoot tone="light" padding="sm" className="rounded-2xl border-slate-200 bg-slate-50">
+          <CardTitle className="text-slate-900">TanStack Router</CardTitle>
+          <CardDescription className="mt-1 text-slate-600">
             File-based routes with strong TypeScript inference.
-          </p>
-        </div>
-        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-          <h3 className="font-semibold text-slate-900">Zod</h3>
-          <p className="mt-1 text-sm text-slate-600">
+          </CardDescription>
+        </CardRoot>
+        <CardRoot tone="light" padding="sm" className="rounded-2xl border-slate-200 bg-slate-50">
+          <CardTitle className="text-slate-900">Zod</CardTitle>
+          <CardDescription className="mt-1 text-slate-600">
             Predictable runtime validation for forms and API contracts.
-          </p>
-        </div>
+          </CardDescription>
+        </CardRoot>
       </div>
     </section>
   )
