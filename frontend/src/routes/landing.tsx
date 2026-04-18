@@ -82,7 +82,7 @@ function LandingPage() {
     <section className="min-h-screen overflow-x-hidden bg-[#131313] text-[#e5e2e1] antialiased">
       <header className="fixed left-0 right-0 top-0 z-50 flex h-14 items-center justify-between bg-[#1c1b1b]/80 px-6 backdrop-blur-xl">
         <div className="flex items-center gap-4">
-          <span className="text-xl font-bold tracking-tight text-[#5dade2]">RoomChat</span>
+          <span className="text-xl font-bold tracking-tight text-[#5dade2]">meetZen</span>
         </div>
 
         <div className="flex items-center gap-6">

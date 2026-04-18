@@ -3,13 +3,9 @@ import { Link, useRouterState } from '@tanstack/react-router'
 
 export function PageShell({ children }: PropsWithChildren) {
   const pathname = useRouterState({ select: (state) => state.location.pathname })
-  const isImmersiveRoute =
-    pathname === '/' ||
-    pathname === '/login' ||
-    pathname === '/signup' ||
-    pathname === '/landing'
+  const isShellRoute = pathname === '/about'
 
-  if (isImmersiveRoute) {
+  if (!isShellRoute) {
     return <main className="min-h-screen">{children}</main>
   }
 

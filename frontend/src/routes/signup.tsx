@@ -15,7 +15,7 @@ function SignupPage() {
 
       <div className="relative w-full max-w-lg rounded-[30px] border border-white/10 bg-[rgb(24_24_24_/_0.76)] p-6 shadow-[0_30px_70px_rgba(0,0,0,0.5)] backdrop-blur-xl sm:p-8">
         <div className="text-center">
-          <p className="text-xs uppercase tracking-[0.32em] text-[#9cb2c2]">RoomChat</p>
+          <p className="text-xs uppercase tracking-[0.32em] text-[#9cb2c2]">meetZen</p>
           <h1 className="mt-3 font-[var(--font-heading)] text-3xl tracking-tight text-[#f6f9fc]">
             Crie sua conta no santuario digital
           </h1>

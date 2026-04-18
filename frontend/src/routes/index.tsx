@@ -22,7 +22,7 @@ function HomePage() {
           <nav className="mx-auto flex h-16 w-full max-w-screen-2xl items-center justify-between px-2 sm:px-6 lg:px-8">
             <div className="flex items-center gap-2">
               <span className="font-[var(--font-heading)] text-2xl font-bold tracking-tight text-sky-400">
-                RoomChat
+                meetZen
               </span>
             </div>
 
@@ -69,7 +69,7 @@ function HomePage() {
               </h1>
 
               <p className="text-lg font-light leading-relaxed text-[#bfc7d0] md:text-xl">
-                O RoomChat e um santuario minimalista projetado para a
+                O meetZen e um santuario minimalista projetado para a
                 colaboracao digital. Desfrute de conexoes nitidas em um
                 ambiente calmo e sofisticado.
               </p>
@@ -104,7 +104,7 @@ function HomePage() {
               <div className="mt-4 border-t border-white/5 pt-8">
                 <p className="text-sm text-[#737373]">
                   <span className="text-[#a2d1b2]">Saiba mais</span> sobre a
-                  seguranca e privacidade do RoomChat.
+                  seguranca e privacidade do meetZen.
                 </p>
               </div>
             </article>
@@ -173,7 +173,7 @@ function HomePage() {
           <div className="mx-auto flex w-full max-w-screen-2xl flex-col items-center justify-between gap-6 px-6 py-10 md:flex-row md:px-12">
             <div className="flex flex-col gap-2">
               <span className="font-[var(--font-heading)] text-xl font-bold tracking-tight text-sky-400 md:hidden">
-                RoomChat
+                meetZen
               </span>
               <p className="text-sm tracking-wide text-neutral-500">
                 © 2024 Velvet Sanctuary. Designed for the Digital Void.
