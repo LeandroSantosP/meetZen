@@ -1,9 +1,25 @@
 @import 'tailwindcss';
 
-:root {
+@theme {
   --font-sans: 'Space Grotesk', 'Avenir Next', 'Segoe UI', sans-serif;
-  --font-heading: 'Sora', 'Space Grotesk', 'Segoe UI', sans-serif;
   --font-mono: 'IBM Plex Mono', 'Cascadia Code', monospace;
+
+  --color-bg-page: #131313;
+  --color-bg-surface: #201f1f;
+  --color-bg-surface-low: #1c1b1b;
+  --color-bg-surface-strong: #2a2a2a;
+
+  --color-text-primary: #e5e2e1;
+  --color-text-secondary: #bfc7d0;
+  --color-text-muted: #7b8590;
+  --color-text-on-primary: #003f5d;
+  --color-text-on-danger: #390b0e;
+
+  --color-border-subtle: #40484f;
+
+  --color-accent-primary: #5dade2;
+  --color-accent-success: #a2d1b2;
+  --color-accent-danger: #ffb3b3;
 }
 
 * {
