@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { contactFormSchema } from '@/schemas/contact-form.schema'
 
@@ -20,7 +20,7 @@ export const Route = createFileRoute('/')({
 
 function HomePage() {
   const [form, setForm] = useState<FormState>(initialForm)
-  const result = useMemo(() => contactFormSchema.safeParse(form), [form])
+  contactFormSchema.safeParse(form)
 
   return (
     <section className="grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
