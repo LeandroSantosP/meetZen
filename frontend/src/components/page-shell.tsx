@@ -1,7 +1,18 @@
 import type { PropsWithChildren } from 'react'
-import { Link } from '@tanstack/react-router'
+import { Link, useRouterState } from '@tanstack/react-router'
 
 export function PageShell({ children }: PropsWithChildren) {
+  const pathname = useRouterState({ select: (state) => state.location.pathname })
+  const isImmersiveRoute =
+    pathname === '/' ||
+    pathname === '/login' ||
+    pathname === '/signup' ||
+    pathname === '/landing'
+
+  if (isImmersiveRoute) {
+    return <main className="min-h-screen">{children}</main>
+  }
+
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-5xl flex-col px-5 py-8 md:px-10 md:py-12">
       <header className="mb-10 rounded-3xl border border-slate-200/70 bg-white/80 p-5 shadow-[0_20px_45px_rgba(24,36,56,0.08)] backdrop-blur md:p-7">
