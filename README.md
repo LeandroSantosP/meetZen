@@ -2,10 +2,21 @@
 
 This monorepo currently contains:
 
-- `backend/`: placeholder directory (not implemented yet)
+- `backend/`: Spring Boot API (Java 21 + Maven + Spring Data JDBC)
 - `frontend/`: React + Vite application
 
-## Stack (frontend)
+## Stack
+
+Backend:
+
+- Spring Boot 4.0.5
+- Maven
+- Java 21
+- Spring Data JDBC
+- PostgreSQL
+- OpenAPI/Swagger
+
+Frontend:
 
 - React + Vite (TypeScript)
 - Tailwind CSS v4 + PostCSS
@@ -38,4 +49,12 @@ From frontend:
 ```bash
 npm run routegen
 npm run format
+```
+
+From backend:
+
+```bash
+cd backend
+mvn test
+mvn spring-boot:run -Dspring-boot.run.profiles=dev
 ```
