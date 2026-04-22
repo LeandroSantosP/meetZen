@@ -1,7 +1,7 @@
 package com.meetzen.backend.infra.user;
 
 import com.meetzen.backend.application.user.UserApplicationService;
-import com.meetzen.backend.application.user.UserView;
+import com.meetzen.backend.application.user.UserOutput;
 import com.meetzen.backend.infra.exception.ApiErrorResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -47,7 +47,7 @@ public class UserController {
             @ApiResponse(responseCode = "400", description = "Validation error", content = @Content(schema = @Schema(implementation = ApiErrorResponse.class)))
     })
     public ResponseEntity<UserResponse> createUser(@Valid @RequestBody CreateUserRequest request) {
-        UserView created = userApplicationService.createUser(mapper.toCommand(request));
+        UserOutput created = userApplicationService.createUser(mapper.toInput(request));
         URI location = URI.create("/api/v1/users/" + created.id());
         return ResponseEntity.created(location).body(mapper.toResponse(created));
     }

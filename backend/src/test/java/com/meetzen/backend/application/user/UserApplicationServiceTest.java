@@ -24,7 +24,7 @@ class UserApplicationServiceTest {
             new UserApplicationMapper(),
             Clock.fixed(Instant.parse("2026-04-20T18:30:00Z"), ZoneOffset.UTC));
 
-    var created = service.createUser(new CreateUserCommand("Leandro", "LEANDRO@MAIL.COM "));
+    var created = service.createUser(new UserInput("Leandro", "LEANDRO@MAIL.COM "));
 
     assertEquals("leandro@mail.com", created.email());
     assertEquals("Leandro", created.name());
@@ -41,7 +41,7 @@ class UserApplicationServiceTest {
     IllegalArgumentException error =
         assertThrows(
             IllegalArgumentException.class,
-            () -> service.createUser(new CreateUserCommand("Outra", "ana@mail.com")));
+            () -> service.createUser(new UserInput("Outra", "ana@mail.com")));
 
     assertTrue(error.getMessage().contains("already exists"));
   }

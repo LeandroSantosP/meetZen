@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserApplicationMapper {
 
-  public UserView toView(User user) {
-    return new UserView(user.id(), user.name(), user.email(), user.createdAt());
-  }
+    public UserOutput toOutput(User user) {
+        return new UserOutput(user.id(), user.name(), user.email(), user.createdAt());
+    }
 }

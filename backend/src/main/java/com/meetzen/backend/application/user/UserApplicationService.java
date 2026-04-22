@@ -22,24 +22,24 @@ public class UserApplicationService {
         this.clock = clock;
     }
 
-    public List<UserView> listUsers() {
-        return userRepository.findAll().stream().map(userApplicationMapper::toView).toList();
+    public List<UserOutput> listUsers() {
+        return userRepository.findAll().stream().map(userApplicationMapper::toOutput).toList();
     }
 
-    public UserView createUser(CreateUserCommand command) {
-        if (userRepository.existsByEmail(command.email())) {
+    public UserOutput createUser(UserInput input) {
+        if (userRepository.existsByEmail(input.email())) {
             throw new IllegalArgumentException("User with this email already exists");
         }
 
         User created = userRepository.save(
-                new User(null, command.name().trim(), command.email().trim().toLowerCase(), Instant.now(clock)));
-        return userApplicationMapper.toView(created);
+                new User(null, input.name().trim(), input.email().trim().toLowerCase(), Instant.now(clock)));
+        return userApplicationMapper.toOutput(created);
     }
 
-    public UserView firstUserOrFail() {
+    public UserOutput firstUserOrFail() {
         return userRepository.findAll().stream()
                 .findFirst()
-                .map(userApplicationMapper::toView)
+                .map(userApplicationMapper::toOutput)
                 .orElseThrow(() -> new ResourceNotFoundException("No users found"));
     }
 }

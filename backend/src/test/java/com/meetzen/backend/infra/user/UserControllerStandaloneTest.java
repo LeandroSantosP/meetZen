@@ -9,9 +9,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.meetzen.backend.application.user.CreateUserCommand;
+import com.meetzen.backend.application.user.UserInput;
 import com.meetzen.backend.application.user.UserApplicationService;
-import com.meetzen.backend.application.user.UserView;
+import com.meetzen.backend.application.user.UserOutput;
 import com.meetzen.backend.infra.exception.GlobalExceptionHandler;
 import java.time.Instant;
 import java.util.List;
@@ -39,9 +39,9 @@ class UserControllerStandaloneTest {
 
   @Test
   void shouldCreateAndListUsers() throws Exception {
-    UserView created = new UserView(1L, "Leandro", "leandro@mail.com", Instant.parse("2026-04-20T18:30:00Z"));
+    UserOutput created = new UserOutput(1L, "Leandro", "leandro@mail.com", Instant.parse("2026-04-20T18:30:00Z"));
 
-    when(userApplicationService.createUser(any(CreateUserCommand.class))).thenReturn(created);
+    when(userApplicationService.createUser(any(UserInput.class))).thenReturn(created);
     when(userApplicationService.listUsers()).thenReturn(List.of(created));
 
     String payload = objectMapper.writeValueAsString(new CreateUserRequest("Leandro", "leandro@mail.com"));

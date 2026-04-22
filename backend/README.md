@@ -16,10 +16,10 @@ Current package layout:
 src/main/java/com/meetzen/backend/
   application/
     user/
-      CreateUserCommand.java
+      UserInput.java
       UserApplicationMapper.java
       UserApplicationService.java
-      UserView.java
+      UserOutput.java
   domain/
     user/
       User.java
@@ -59,6 +59,12 @@ cd backend
 mvn spring-boot:run -Dspring-boot.run.profiles=dev
 ```
 
+Database note:
+
+- In `dev` profile, backend expects PostgreSQL at `localhost:5432`.
+- You can start PostgreSQL from root with `docker compose -f infra/docker-compose.yml up -d postgres`.
+- Credentials come from root `.env` (`DB_NAME`, `DB_USER`, `DB_PASSWORD`).
+
 Default local API URL: `http://localhost:8080`
 
 ## Tests
@@ -72,6 +78,35 @@ mvn test
 
 - OpenAPI JSON: `http://localhost:8080/v3/api-docs`
 - Swagger UI: `http://localhost:8080/swagger-ui/index.html`
+
+## Load Balancer Diagnostic Endpoint
+
+For local Nginx load-balancer checks, backend exposes:
+
+- `GET /api/v1/whoami`
+
+Response example:
+
+```json
+{
+  "instance": "backend-8080",
+  "port": "8080"
+}
+```
+
+When running multiple backend instances behind Nginx, repeated calls to `http://localhost/api/v1/whoami` should show different instances.
+
+## Postman Sync Rule
+
+To keep a practical API client artifact always up to date, maintain the root Postman collection:
+
+- File: `meetZen.postman_collection.json` (in repository root)
+
+Mandatory rule:
+
+1. If any endpoint is created, removed, or changed, update the Postman collection in the same PR.
+2. Reflect method, route, required headers, and example payloads.
+3. Keep endpoint examples consistent with request/response contracts in this backend.
 
 ## Database Migrations (Flyway)
 
@@ -100,6 +135,26 @@ For a new domain (example: `auth`):
 3. Create adapters in `infra/auth` (controller + persistence + mapping)
 4. Keep controllers thin and delegate orchestration to application layer
 5. Do not leak persistence entities into API responses
+
+## Use Case Pattern (Input/Output)
+
+In the `application` layer, each use case should communicate through explicit DTOs:
+
+- `*Input`: data that enters the use case (from controller mapper to application service)
+- `*Output`: data that leaves the use case (from application service back to controller mapper)
+
+Example in `user` domain:
+
+- `UserInput` is used by `UserApplicationService#createUser(UserInput input)`
+- `UserOutput` is returned by `createUser`, `listUsers`, and `firstUserOrFail`
+
+Naming guidance:
+
+1. Prefer domain-focused names (`UserInput`, `UserOutput`) over transport/technical names.
+2. Keep `infra` request/response DTOs (`CreateUserRequest`, `UserResponse`) separate from `application` input/output DTOs.
+3. Keep mapping responsibilities explicit:
+   - `UserControllerMapper` maps `CreateUserRequest -> UserInput` and `UserOutput -> UserResponse`
+   - `UserApplicationMapper` maps `User (domain) -> UserOutput`
 
 ## Good Practices
 
