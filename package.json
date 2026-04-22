@@ -7,6 +7,10 @@
     "frontend"
   ],
   "scripts": {
+    "dev:frontend": "npm run dev --workspace frontend",
+    "dev:backend": "mvn -f backend/pom.xml spring-boot:run -Dspring-boot.run.profiles=dev",
+    "dev:backend:1": "mvn -f backend/pom.xml spring-boot:run -Dspring-boot.run.profiles=dev -Dspring-boot.run.arguments=--server.port=8080",
+    "dev:backend:2": "mvn -f backend/pom.xml spring-boot:run -Dspring-boot.run.profiles=dev -Dspring-boot.run.arguments=--server.port=8081",
     "dev": "npm run dev --workspace frontend",
     "build": "npm run build --workspace frontend",
     "preview": "npm run preview --workspace frontend",
