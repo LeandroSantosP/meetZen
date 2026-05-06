@@ -1,0 +1,7 @@
+{
+  "name": "spring-boot-best-practices",
+  "version": "1.0.0",
+  "author": "meetZen",
+  "license": "MIT",
+  "description": "Practical Spring Boot best practices focused on architecture, security, validation, persistence, observability, and testing."
+}

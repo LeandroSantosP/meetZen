@@ -1,4 +1,4 @@
-package com.meetzen.backend.infra.user;
+package com.meetzen.backend.infra.repositories;
 
 import com.meetzen.backend.domain.user.User;
 import com.meetzen.backend.domain.user.UserRepository;

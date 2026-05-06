@@ -9,8 +9,6 @@ This repository is a monorepo with two top-level folders:
 
 ## Scope Rules
 
-- Do not implement backend code yet.
-- Focus current implementation work on `frontend/`.
 - Keep root scripts as workspace orchestrators.
 
 ## Frontend Technical Stack

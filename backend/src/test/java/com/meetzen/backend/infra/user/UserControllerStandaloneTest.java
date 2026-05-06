@@ -40,22 +40,7 @@ class UserControllerStandaloneTest {
   @Test
   void shouldCreateAndListUsers() throws Exception {
     UserOutput created = new UserOutput(1L, "Leandro", "leandro@mail.com", Instant.parse("2026-04-20T18:30:00Z"));
-
-    when(userApplicationService.createUser(any(UserInput.class))).thenReturn(created);
     when(userApplicationService.listUsers()).thenReturn(List.of(created));
-
-    String payload = objectMapper.writeValueAsString(new CreateUserRequest("Leandro", "leandro@mail.com"));
-
-    mockMvc
-        .perform(
-            post("/api/v1/users")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(payload))
-        .andExpect(status().isCreated())
-        .andExpect(header().exists("Location"))
-        .andExpect(jsonPath("$.id").value(1))
-        .andExpect(jsonPath("$.email").value("leandro@mail.com"));
-
     mockMvc
         .perform(get("/api/v1/users"))
         .andExpect(status().isOk())

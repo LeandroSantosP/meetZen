@@ -1,9 +1,10 @@
 spring:
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/meetzen}
+    # Default to Postgres (use the docker-compose in infra/) for dev if DB_URL is not provided.
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/${DB_NAME:meetzen}}
     username: ${DB_USER:postgres}
     password: ${DB_PASSWORD:postgres}
-    driver-class-name: org.postgresql.Driver
+    driver-class-name: ${DB_DRIVER:org.postgresql.Driver}
   flyway:
     enabled: true
     locations: classpath:db/migration

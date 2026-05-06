@@ -126,6 +126,12 @@ mvn test
 mvn spring-boot:run -Dspring-boot.run.profiles=dev
 ```
 
+## Boas praticas
+
+- Guia consolidado React + Spring Boot: `docs/boas-praticas-react-spring-boot.md`
+- Regras detalhadas de performance React: `.agents/skills/vercel-react-best-practices/AGENTS.md`
+- Regras detalhadas Spring Boot: `.agents/skills/spring-boot-best-practices/AGENTS.md`
+
 ## API Collection Rule (Postman)
 
 To keep API consumers synced with backend changes, this repository uses a root Postman collection as the latest API reference:

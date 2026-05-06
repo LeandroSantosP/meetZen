@@ -1,4 +1,4 @@
-package com.meetzen.backend.infra.user;
+package com.meetzen.backend.infra.repositories;
 
 import org.springframework.data.repository.ListCrudRepository;
 
